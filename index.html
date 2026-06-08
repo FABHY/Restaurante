@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Sabor & Arte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <div id="popupVip" class="popup-wrapper">
+        <div class="popup-conteudo">
+            <button class="popup-fechar" id="btnFecharPopup">×</button>
+            <div class="popup-banner"></div>
+            <div class="popup-texto">
+                <span>✨ Oferta Exclusiva ✨</span>
+                <h2>Entre para a Nossa Lista VIP</h2>
+                <p>Cadastre-se agora e ganhe <strong>10% de desconto</strong> na sua primeira visita ou uma <strong>sobremesa grátis</strong>!</p>
+                
+                <form id="formPopup" class="popup-form">
+                    <input type="text" id="popupNome" placeholder="Seu Nome" required>
+                    <input type="email" id="popupEmail" placeholder="Seu Melhor E-mail" required>
+                    <input type="tel" id="popupWhats" placeholder="Seu WhatsApp" required>
+                    <button type="submit" class="btn-popup">Garantir Meu Cupom</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-fechar">×</span>
+        <button class="lightbox-seta lightbox-seta-esquerda" id="setaEsquerda">❮</button>
+        <img class="lightbox-imagem" id="lightboxImg" src="" alt="Imagem Expandida">
+        <button class="lightbox-seta lightbox-seta-direita" id="setaDireita">❯</button>
+    </div>
+
+    <header>
+        <div class="logo">Sabor & Arte</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#ambiente">Ambiente</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="#cardapio-completo">Cardápio</a>
+            <a href="#reserva">Reservas</a>
+            <a href="#delivery-secao">Delivery</a>
+            <a href="#depoimentos">Avaliações</a>
+            <a href="#localizacao">Onde Estamos</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-text" data-aos="fade-up" data-aos-duration="1500">
+            <h1>Alta Gastronomia & Momentos Inesquecíveis</h1>
+            <p>Venha saborear pratos artesanais feitos por quem entende de paixão pela cozinha.</p>
+            <div class="hero-botoes">
+                <a href="#cardapio-completo" class="btn">Ver Cardápio Completo</a>
+                <a href="#delivery-secao" class="btn btn-secundario">Peça Online</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <h2 data-aos="fade-up">Nossa História</h2>
+        <div class="sobre-conteudo">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80" alt="Interior do Restaurante" data-aos="fade-right" data-aos-delay="200">
+            <div class="sobre-texto" data-aos="fade-left" data-aos-delay="400">
+                <p>Fundado em 2015, o Sabor & Arte nasceu do desejo de trazer a culinária afetiva com um toque de sofisticação moderna. Cada ingrediente é selecionado de produtores locais para garantir o máximo de frescor e sabor.</p>
+                <p>Nosso ambiente foi planejado para oferecer conforto, elegância e uma experiência sensorial completa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ambiente" class="ambiente">
+        <h2 data-aos="fade-up">Nosso Ambiente</h2>
+        <p class="subtitulo" data-aos="fade-up" data-aos-delay="100">Clique nas fotos para explorar a atmosfera única do nosso espaço.</p>
+        
+        <div class="galeria-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80" alt="Nosso Salão Principal Confortável" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&auto=format&fit=crop&q=80" alt="Área Externa para Eventos e Jantares" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?w=800&auto=format&fit=crop&q=80" alt="Bar de Drinks e Coquetéis Artesanais" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&auto=format&fit=crop&q=80" alt="Nossa Cozinha e Preparation dos Pratos" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=800&auto=format&fit=crop&q=80" alt="Detalhes da Decoração Intimista" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&auto=format&fit=crop&q=80" alt="Adega de Vinhos Selecionados" class="galeria-foto">
+                <div class="galeria-overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="diferenciais">
+        <h2 data-aos="fade-up">Por Que Nos Escolher?</h2>
+        <p class="subtitulo" data-aos="fade-up" data-aos-delay="100">Cuidamos de cada detalhe para proporcionar a melhor experiência.</p>
+        <div class="grid-diferenciais">
+            <div class="card-diferencial" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-leaf"></i>
+                <h3>Ingredientes Locais</h3>
+                <p>Produtos frescos comprados diretamente de produtores da nossa região diariamente.</p>
+            </div>
+            <div class="card-diferencial" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-child"></i>
+                <h3>Espaço Kids</h3>
+                <p>Área recreativa monitorada para que seus filhos se divirtam com total segurança.</p>
+            </div>
+            <div class="card-diferencial" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-paw"></i>
+                <h3>Ambiente Pet Friendly</h3>
+                <p>Seu melhor amigo de quatro patas é super bem-vindo em nossa área externa.</p>
+            </div>
+            <div class="card-diferencial" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-car"></i>
+                <h3>Valet Gratuito</h3>
+                <p>Estacionamento próprio com manobrista cortesia para todos os nossos clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cardapio-completo" class="cardapio-completo">
+        <h2 data-aos="fade-up">Nosso Cardápio</h2>
+        <p class="subtitulo" data-aos="fade-up" data-aos-delay="100">Explore nossas especialidades preparadas por chefs renomados.</p>
+        
+        <div class="abas-cardapio" data-aos="fade-up" data-aos-delay="200">
+            <button class="aba-btn ativo" data-categoria="todos">Todos</button>
+            <button class="aba-btn" data-categoria="entradas">Entradas</button>
+            <button class="aba-btn" data-categoria="principais">Pratos Principais</button>
+            <button class="aba-btn" data-categoria="pizzas">Pizzas</button>
+            <button class="aba-btn" data-categoria="sobremesas">Sobremesas</button>
+            <button class="aba-btn" data-categoria="bebidas">Bebidas & Vinhos</button>
+        </div>
+
+        <div class="grid-cardapio" data-aos="fade-up" data-aos-delay="300">
+            
+            <div class="item-cardapio item-visivel" data-categoria="entradas">
+                <img src="https://images.unsplash.com/photo-1572656631137-7935297eff55?w=500&auto=format&fit=crop&q=80" alt="Bruschetta Tradicional">
+                <h3>Bruschetta Al Pomodoro</h3>
+                <p>Pão italiano tostado a lenha, tomates concassé marinado no azeite de oliva extra virgem, alho e manjericão.</p>
+                <span class="preco">R$ 28,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="entradas">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=80" alt="Salada Ceasar">
+                <h3>Burrata com Pesto</h3>
+                <p>Burrata artesanal cremosa, servida sobre cama de rúcula fresca, tomates confitados e molho pesto da casa.</p>
+                <span class="preco">R$ 46,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="entradas">
+                <img src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500&auto=format&fit=crop&q=80" alt="Batatas Rústicas">
+                <h3>Croquete de Costela</h3>
+                <p>Quatro unidades de croquetes super recheados com costela bovina desfiada e queijo defumado.</p>
+                <span class="preco">R$ 34,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="principais">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=80" alt="Costelinha ao Barbecue">
+                <h3>Costela Premium BBQ</h3>
+                <p>Costelinha suína defumada por 8 horas, derretendo na boca, acompanhada de batatas rústicas fritas.</p>
+                <span class="preco">R$ 69,90</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="principais">
+                <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?w=500&auto=format&fit=crop&q=80" alt="Bife Ancho">
+                <h3>Ojo de Bife Angus</h3>
+                <p>Corte nobre de 300g grelhado na brasa alta, servido com farofa de ovos artesanal e molho chimichurri.</p>
+                <span class="preco">R$ 89,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="principais">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&auto=format&fit=crop&q=80" alt="Salmão Grelhado">
+                <h3>Salmão Crosta de Castanhas</h3>
+                <p>Filé de salmão grelhado com uma crosta crocante de castanhas, acompanhado de risoto de limão siciliano.</p>
+                <span class="preco">R$ 78,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="pizzas">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=80" alt="Pizza Artesanal">
+                <h3>Pizza Marguerita Especial</h3>
+                <p>Massa de fermentação natural (48h), molho de tomate italiano, muçarela de búfala e folhas de manjericão fresco.</p>
+                <span class="preco">R$ 48,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="pizzas">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=80" alt="Pizza de Parma">
+                <h3>Pizza Parma & Rúcula</h3>
+                <p>Molho artesanal, muçarela premium, fatias finas de presunto de parma cru, rúcula fresca e lascas de parmesão.</p>
+                <span class="preco">R$ 59,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="pizzas">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&auto=format&fit=crop&q=80" alt="Pizza Pepperoni">
+                <h3>Pizza Pepperoni & Mel</h3>
+                <p>Muçarela, pepperoni artesanal crocante e uma leve finalização com fios de mel silvestre picante.</p>
+                <span class="preco">R$ 54,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="sobremesas">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&auto=format&fit=crop&q=80" alt="Sobremesa Grand Gateau">
+                <h3>Grand Gateau Sabor & Arte</h3>
+                <p>Bolo de chocolate denso e cremoso com picolé de baunilha inserido, ganache morna e morangos frescos.</p>
+                <span class="preco">R$ 32,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="sobremesas">
+                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&auto=format&fit=crop&q=80" alt="Panna Cotta">
+                <h3>Panna Cotta de Frutas Vermelhas</h3>
+                <p>Doce de nata italiana tradicional, super leve e aveludada, coberta com calda redução de frutas vermelhas.</p>
+                <span class="preco">R$ 24,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="sobremesas">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&q=80" alt="Petit Gateau">
+                <h3>Tiramisù Clássico</h3>
+                <p>Biscoito champagne embebido em café espresso, creme suave à base de queijo mascarpone e cacau em pó.</p>
+                <span class="preco">R$ 28,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="bebidas">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500&auto=format&fit=crop&q=80" alt="Taça de Vinho">
+                <h3>Vinho Tinto Cabernet Sauvignon</h3>
+                <p>Taça selecionada de nossa adega. Vinho encorpado com notas de frutas escuras e carvalho premium.</p>
+                <span class="preco">R$ 26,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="bebidas">
+                <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=500&auto=format&fit=crop&q=80" alt="Cocktail Artesanal">
+                <h3>Drink Autoral "Sabor & Tonic"</h3>
+                <p>Gin artesanal nacional infusionado com especiarias, água tônica premium, rodela de toranja e alecrim tostado.</p>
+                <span class="preco">R$ 32,00</span>
+            </div>
+
+            <div class="item-cardapio item-visivel" data-categoria="bebidas">
+                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=500&auto=format&fit=crop&q=80" alt="Suco Natural">
+                <h3>Sucos Naturais Integrais</h3>
+                <p>Opções de Laranja, Limão Siciliano ou Abacaxi com Hortelã. Feitos puramente na hora do pedido.</p>
+                <span class="preco">R$ 12,00</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="reserva" class="reserva">
+        <div class="reserva-container" data-aos="zoom-in-up">
+            <h2>Reserve sua Mesa</h2>
+            <p>Garanta sua experiência gastronômica sem filas de espera.</p>
+            
+            <form id="formReservaOnline" class="form-reserva">
+                <div class="form-grupo-duplo">
+                    <div class="form-item">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Ex: João Silva" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Ex: joao@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-grupo-triplo">
+                    <div class="form-item">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="pessoas">Nº de Pessoas</label>
+                        <select id="pessoas" required>
+                            <option value="1">1 Pessoa</option>
+                            <option value="2" selected>2 Pessoas</option>
+                            <option value="3">3 Pessoas</option>
+                            <option value="4">4 Pessoas</option>
+                            <option value="5">5 Pessoas</option>
+                            <option value="6+">6 ou mais pessoas</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <label for="data">Data e Horário</label>
+                        <div class="data-hora-inputs">
+                            <input type="date" id="data" required>
+                            <input type="time" id="hora" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label for="obs">Observações Especiais (Opcional)</label>
+                    <textarea id="obs" rows="3" placeholder="Ex: Aniversário, restrições alimentares..."></textarea>
+                </div>
+
+                <button type="submit" id="btnConfirmarReserva" class="btn-submit">Confirmar Reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="delivery-secao" class="delivery-secao">
+        <h2 data-aos="fade-up">Peça no Conforto da sua Casa</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Estamos disponíveis nas melhores plataformas de entrega. Escolha o seu aplicativo favorito!</p>
+        <div class="delivery-links-cards">
+            <a href="https://www.ifood.com.br" target="_blank" rel="noopener noreferrer" class="card-app ifood-color" data-aos="fade-right" data-aos-delay="200">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Pedir pelo iFood</h3>
+                <p>Entrega rápida com os melhores cupons da região.</p>
+            </a>
+            <a href="https://www.rappi.com.br" target="_blank" rel="noopener noreferrer" class="card-app rappi-color" data-aos="fade-left" data-aos-delay="300">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>Pedir pelo Rappi</h3>
+                <p>Seus pratos favoritos entregues na sua porta num piscar de olhos.</p>
+            </a>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <h2 data-aos="fade-up">O Que Dizem Nossos Clientes</h2>
+        <p class="subtitulo" data-aos="fade-up" data-aos-delay="100">A opinião de quem vive a experiência Sabor & Arte.</p>
+        
+        <div class="carrossel-depoimentos">
+            <div class="card-depoimento" data-aos="fade-up" data-aos-delay="100">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="texto-depoimento">"A costela é simplesmente divina, desmancha no garfo! O ambiente escuro é super intimista e requintado. Virei cliente assídua."</p>
+                <div class="autor-info">
+                    <h4>Mariana Costa</h4>
+                    <span>Avaliado via Google</span>
+                </div>
+            </div>
+
+            <div class="card-depoimento" data-aos="fade-up" data-aos-delay="200">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="texto-depoimento">"Fiz a reserva pelo site e fui atendido imediatamente ao chegar. Atendimento nota 10 e a pizza marguerita é espetacular!"</p>
+                <div class="autor-info">
+                    <h4>Ricardo Souza</h4>
+                    <span>Avaliado via TripAdvisor</span>
+                </div>
+            </div>
+
+            <div class="card-depoimento" data-aos="fade-up" data-aos-delay="300">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="texto-depoimento">"O Grand Gateau fechou a noite com chave de ouro. Excelente opção para jantares românticos. Recomendo muito!"</p>
+                <div class="autor-info">
+                    <h4>Beatriz Rocha</h4>
+                    <span>Avaliado via Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="localizacao">
+        <h2 data-aos="fade-up">Visite Nosso Espaço</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Venha nos conhecer! Veja abaixo a nossa localização exata.</p>
+        <div class="mapa-container" data-aos="zoom-in">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975432658897!2d-46.6564943!3d-23.5613497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da060131%3A0x2a13e2bfbc90c0!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="rodape-conteudo" data-aos="fade-up">
+            <div class="contato-info">
+                <h3>Sabor & Arte</h3>
+                <p>📍 Av. Paulista, 1000 - Bela Vista - São Paulo/SP</p>
+                <p>📞 (11) 99999-9999</p>
+                <p>⏰ Terça a Domingo: 18h às 23h30</p>
+            </div>
+            
+            <div class="redes-sociais">
+                <h3>Siga-nos</h3>
+                <p>Acompanhe nossos bastidores e novidades!</p>
+                <div class="icones-redes">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link insta" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link face" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link tik" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="direitos">
+            <p>© 2026 Restaurante Sabor & Arte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="delivery-flutuante">
+        <a href="https://www.ifood.com.br" target="_blank" rel="noopener noreferrer" class="btn-float-deliv ifood-float" title="Pedir no iFood">
+            <i class="fas fa-motorcycle"></i> <span>iFood</span>
+        </a>
+        <a href="https://www.rappi.com.br" target="_blank" rel="noopener noreferrer" class="btn-float-deliv rappi-float" title="Pedir no Rappi">
+            <i class="fas fa-shopping-bag"></i> <span>Rappi</span>
+        </a>
+    </div>
+
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, 
+            once: true,     
+            offset: 120,     
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // LÓGICA DO POP-UP COM MEMÓRIA (LOCALSTORAGE)
+            const popup = document.getElementById("popupVip");
+            const btnFechar = document.getElementById("btnFecharPopup");
+            const formPopup = document.getElementById("formPopup");
+
+            if (!localStorage.getItem("popupVisualizado")) {
+                setTimeout(() => {
+                    popup.classList.add("mostrar");
+                }, 3000);
+            }
+
+            btnFechar.addEventListener("click", () => {
+                popup.classList.remove("mostrar");
+                localStorage.setItem("popupVisualizado", "true");
+            });
+
+            popup.addEventListener("click", (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove("mostrar");
+                    localStorage.setItem("popupVisualizado", "true");
+                }
+            });
+
+            formPopup.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const nome = document.getElementById("popupNome").value;
+                const email = document.getElementById("popupEmail").value;
+                alert(`Obrigado, ${nome}! Seu cupom de 10% de desconto foi enviado para o e-mail: ${email}`);
+                popup.classList.remove("mostrar");
+                localStorage.setItem("popupVisualizado", "true");
+            });
+
+            // LÓGICA INTERATIVA DO CARDÁPIO COMPLETO (SISTEMA DE FILTRO)
+            const botoesAba = document.querySelectorAll(".aba-btn");
+            const itensCardapio = document.querySelectorAll(".item-cardapio");
+
+            botoesAba.forEach(botao => {
+                botao.addEventListener("click", () => {
+                    botoesAba.forEach(btn => btn.classList.remove("ativo"));
+                    botao.classList.add("ativo");
+
+                    const categoriaAlvo = botao.getAttribute("data-categoria");
+
+                    itensCardapio.forEach(item => {
+                        const categoriaItem = item.getAttribute("data-categoria");
+
+                        if (categoriaAlvo === "todos" || categoriaAlvo === categoriaItem) {
+                            item.style.display = "block";
+                            setTimeout(() => {
+                                item.classList.add("item-visivel");
+                            }, 50);
+                        } else {
+                            item.classList.remove("item-visivel");
+                            item.style.display = "none";
+                        }
+                    });
+                    AOS.refresh();
+                });
+            });
+
+            // GALERIA INTERATIVA (LIGHTBOX)
+            const imagensGaleria = document.querySelectorAll(".galeria-foto");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightboxImg");
+            const btnFecharLightbox = document.querySelector(".lightbox-fechar");
+            const setaEsquerda = document.getElementById("setaEsquerda");
+            const setaDireita = document.getElementById("setaDireita");
+            
+            let indiceImagemAtual = 0;
+
+            function abrirLightbox(indice) {
+                indiceImagemAtual = indice;
+                lightboxImg.src = imagensGaleria[indiceImagemAtual].src;
+                lightboxImg.alt = imagensGaleria[indiceImagemAtual].alt;
+                lightbox.classList.add("ativo");
+                document.body.style.overflow = "hidden";
+            }
+
+            document.querySelectorAll(".galeria-item").forEach((item, indice) => {
+                item.addEventListener("click", () => {
+                    abrirLightbox(indice);
+                });
+            });
+
+            function proximaImagem() {
+                indiceImagemAtual = (indiceImagemAtual + 1) % imagensGaleria.length;
+                lightboxImg.src = imagensGaleria[indiceImagemAtual].src;
+                lightboxImg.alt = imagensGaleria[indiceImagemAtual].alt;
+            }
+
+            function imagemAnterior() {
+                indiceImagemAtual = (indiceImagemAtual - 1 + imagensGaleria.length) % imagensGaleria.length;
+                lightboxImg.src = imagensGaleria[indiceImagemAtual].src;
+                lightboxImg.alt = imagensGaleria[indiceImagemAtual].alt;
+            }
+
+            setaDireita.addEventListener("click", (e) => {
+                e.stopPropagation();
+                proximaImagem();
+            });
+
+            setaEsquerda.addEventListener("click", (e) => {
+                e.stopPropagation();
+                imagemAnterior();
+            });
+
+            function fecharLightbox() {
+                lightbox.classList.remove("ativo");
+                document.body.style.overflow = "auto";
+            }
+
+            btnFecharLightbox.addEventListener("click", fecharLightbox);
+            
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    fecharLightbox();
+                }
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("ativo")) return;
+                if (e.key === "Escape") fecharLightbox();
+                if (e.key === "ArrowRight") proximaImagem();
+                if (e.key === "ArrowLeft") imagemAnterior();
+            });
+
+
+            // --- NOVA LÓGICA DO FORMULÁRIO ENVIANDO PARA O SEU SERVIDOR BACKEND ---
+            const API_URL = "http://localhost:3000"; // Mude para o link do Render quando hospedar o backend
+            const formReserva = document.getElementById("formReservaOnline");
+            const btnReserva = document.getElementById("btnConfirmarReserva");
+
+            formReserva.addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                btnReserva.innerText = "Enviando Pedido de Reserva...";
+                btnReserva.disabled = true;
+
+                // Monta o objeto com os dados digitados
+                const dadosReserva = {
+                    nome: document.getElementById("nome").value,
+                    email: document.getElementById("email").value,
+                    telephone: document.getElementById("telefone").value,
+                    pessoas: document.getElementById("pessoas").value,
+                    data: document.getElementById("data").value,
+                    hora: document.getElementById("hora").value,
+                    obs: document.getElementById("obs").value
+                };
+
+                try {
+                    // Dispara a requisição para a rota do seu servidor Node.js
+                    const resposta = await fetch(`${API_URL}/api/reservas`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(dadosReserva)
+                    });
+
+                    const resultado = await resposta.json();
+
+                    if (resposta.ok) {
+                        alert("🎉 Excelente! Sua reserva foi realizada com sucesso e processada pelo servidor.");
+                        formReserva.reset(); // Reseta os campos do formulário
+                    } else {
+                        throw new Error(resultado.mensagem);
+                    }
+                    
+
+                } catch (erro) {
+                    console.error("Erro na comunicação com a API:", erro);
+                    alert("Ops! Ocorreu um problema de conexão ao processar sua reserva. Por favor, certifique-se de que o backend está rodando.");
+                } finally {
+                    btnReserva.innerText = "Confirmar Reserva";
+                    btnReserva.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
