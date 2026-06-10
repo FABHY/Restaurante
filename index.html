@@ -319,7 +319,7 @@
             <a href="https://www.rappi.com.br" target="_blank" rel="noopener noreferrer" class="card-app rappi-color" data-aos="fade-left" data-aos-delay="300">
                 <i class="fas fa-shopping-bag"></i>
                 <h3>Pedir pelo Rappi</h3>
-                <p>Seus pratos favoritos entregues na sua porta num piscar de olhos.</p>
+                <p>Seus pratos favoritos entregues na sua porta num piscar of olhos.</p>
             </a>
         </div>
     </section>
@@ -560,8 +560,8 @@
             });
 
 
-            // --- NOVA LÓGICA DO FORMULÁRIO ENVIANDO PARA O SEU SERVIDOR BACKEND ---
-            const API_URL = "http://localhost:3000"; // Mude para o link do Render quando hospedar o backend
+            // --- 🌐 CONEXÃO COM O BACKEND CONFIGURADO ---
+            const API_URL = "https://restaurante-pyg7.onrender.com"; 
             const formReserva = document.getElementById("formReservaOnline");
             const btnReserva = document.getElementById("btnConfirmarReserva");
 
@@ -571,11 +571,10 @@
                 btnReserva.innerText = "Enviando Pedido de Reserva...";
                 btnReserva.disabled = true;
 
-                // Monta o objeto com os dados digitados
                 const dadosReserva = {
                     nome: document.getElementById("nome").value,
                     email: document.getElementById("email").value,
-                    telephone: document.getElementById("telefone").value,
+                    telefone: document.getElementById("telefone").value,
                     pessoas: document.getElementById("pessoas").value,
                     data: document.getElementById("data").value,
                     hora: document.getElementById("hora").value,
@@ -583,7 +582,6 @@
                 };
 
                 try {
-                    // Dispara a requisição para a rota do seu servidor Node.js
                     const resposta = await fetch(`${API_URL}/api/reservas`, {
                         method: 'POST',
                         headers: {
@@ -595,8 +593,8 @@
                     const resultado = await resposta.json();
 
                     if (resposta.ok) {
-                        alert("🎉 Excelente! Sua reserva foi realizada com sucesso e processada pelo servidor.");
-                        formReserva.reset(); // Reseta os campos do formulário
+                        alert("🎉 Excelente! Sua reserva foi realizada com sucesso!");
+                        formReserva.reset();
                     } else {
                         throw new Error(resultado.mensagem);
                     }
@@ -604,7 +602,7 @@
 
                 } catch (erro) {
                     console.error("Erro na comunicação com a API:", erro);
-                    alert("Ops! Ocorreu um problema de conexão ao processar sua reserva. Por favor, certifique-se de que o backend está rodando.");
+                    alert("Ops! Ocorreu um problema de conexão ao processar sua reserva. Por favor, tente novamente.");
                 } finally {
                     btnReserva.innerText = "Confirmar Reserva";
                     btnReserva.disabled = false;

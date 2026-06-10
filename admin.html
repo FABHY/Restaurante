@@ -121,13 +121,16 @@
     </div>
 
     <script>
+        // --- 🌐 CONFIGURAÇÃO DA URL REMOTA DO RENDER ---
+        const API_URL = "https://restaurante-pyg7.onrender.com";
+
         let todasAsReservas = [];
         let filtroDataAtual = 'todas';
         let abaAtual = 'ativas';
 
         async function carregarReservas() {
             try {
-                const url = abaAtual === 'ativas' ? 'http://localhost:3000/api/reservas' : 'http://localhost:3000/api/reservas/historico';
+                const url = abaAtual === 'ativas' ? `${API_URL}/api/reservas` : `${API_URL}/api/reservas/historico`;
                 const resposta = await fetch(url);
                 todasAsReservas = await resposta.json();
                 aplicarTodosOsFiltros();
@@ -138,7 +141,7 @@
 
         async function carregarBloqueios() {
             try {
-                const resposta = await fetch('http://localhost:3000/api/bloqueios');
+                const resposta = await fetch(`${API_URL}/api/bloqueios`);
                 const bloqueios = await resposta.json();
                 const tabela = document.getElementById('tabela-bloqueios-dados');
                 tabela.innerHTML = '';
@@ -203,7 +206,7 @@
             if(!data) return alert("Por favor, selecione uma data para bloquear!");
 
             try {
-                const resposta = await fetch('http://localhost:3000/api/bloqueios', {
+                const resposta = await fetch(`${API_URL}/api/bloqueios`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ data, hora })
@@ -224,7 +227,7 @@
         async function removerBloqueio(id) {
             if(confirm("Deseja reabrir esta data para reservas dos clientes?")) {
                 try {
-                    await fetch(`http://localhost:3000/api/bloqueios/${id}`, { method: 'DELETE' });
+                    await fetch(`${API_URL}/api/bloqueios/${id}`, { method: 'DELETE' });
                     carregarBloqueios();
                 } catch (err) {
                     alert("Erro ao remover bloqueio.");
@@ -242,7 +245,7 @@
 
             const listaFiltrada = todasAsReservas.filter(reserva => {
                 if (abaAtual === 'ativas') {
-                    const dataReserva = reserva.data || ''; 
+                    const dataReserva = reserva.data || '';
                     if (filtroDataAtual === 'hoje' && dataReserva !== dataHojeStr) return false;
                     if (filtroDataAtual === 'amanha' && dataReserva !== dataAmanhaStr) return false;
                     if (filtroDataAtual !== 'todas' && filtroDataAtual !== 'hoje' && filtroDataAtual !== 'amanha' && dataReserva !== filtroDataAtual) return false;
@@ -254,7 +257,7 @@
 
         function renderizarTabela(listaParaExibir) {
             const tabela = document.getElementById('tabela-reservas');
-            tabela.innerHTML = ''; 
+            tabela.innerHTML = '';
             const cardTotalReservas = document.getElementById('total-reservas');
             const cardTotalClientes = document.getElementById('total-clientes');
             const colunasMax = abaAtual === 'ativas' ? 9 : 8;
@@ -267,7 +270,10 @@
 
             let somaClientes = 0;
             listaParaExibir.forEach(reserva => {
-                if (reserva.pessoas) somaClientes += parseInt(reserva.pessoas.replace(/[^0-9]/g, '')) || 0;
+                if (reserva.pessoas) {
+                    let valorPessoas = parseInt(reserva.pessoas.toString().replace(/[^0-9]/g, '')) || 0;
+                    somaClientes += valorPessoas;
+                }
 
                 let statusClasse = reserva.status === 'Confirmada' ? 'badge-confirmada' : (reserva.status === 'Finalizada' ? 'badge-finalizada' : 'badge-pendente');
                 let dataExibicao = reserva.data || '-';
@@ -288,7 +294,21 @@
 
         function filtrarPorPeriodo(periodo) { filtroDataAtual = periodo; document.getElementById('calendario').value = ''; document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active')); document.getElementById(`btn-${periodo}`).classList.add('active'); aplicarTodosOsFiltros(); }
         function filtrarPorCalendario() { const data = document.getElementById('calendario').value; if (!data) return; filtroDataAtual = data; document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active')); aplicarTodosOsFiltros(); }
-        async function alterarStatus(id, novoStatus) { if (confirm("Deseja alterar o status desta reserva?")) { try { await fetch(`http://localhost:3000/api/reservas/${id}/status`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ novoStatus }) }); carregarReservas(); } catch (erro) { alert("Erro no servidor."); } } }
+        
+        async function alterarStatus(id, novoStatus) {
+            if (confirm("Deseja alterar o status desta reserva?")) {
+                try {
+                    await fetch(`${API_URL}/api/reservas/${id}/status`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ novoStatus })
+                    });
+                    carregarReservas();
+                } catch (erro) {
+                    alert("Erro no servidor.");
+                }
+            }
+        }
         document.getElementById('campo-busca').addEventListener('input', aplicarTodosOsFiltros);
 
         carregarReservas();
